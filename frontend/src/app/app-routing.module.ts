@@ -5,6 +5,7 @@ import { FeedComponent } from './feed/feed.component';
 
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'feed', component: FeedComponent },
   { path: 'insertproblem', component: FeedComponent }

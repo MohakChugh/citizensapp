@@ -18,7 +18,7 @@ export class FeedComponent implements OnInit {
   }
 
   private fetchProblems() {
-    axios.get('http://localhost:8080/getProblem')
+    axios.get('https://citizensapp-backend.herokuapp.com/getProblem')
       .then(response => {
         this.res = response;
         this.posts = this.res.data.response.problems;
@@ -33,7 +33,7 @@ export class FeedComponent implements OnInit {
   }
 
   upvoteProblem(problemId) {
-    axios.post('http://localhost:8080/upvoteProblem', { problemid: problemId })
+    axios.post('https://citizensapp-backend.herokuapp.com/upvoteProblem', { problemid: problemId })
       .then(response => {
         this.res = response;
         this.fetchProblems();
@@ -44,7 +44,7 @@ export class FeedComponent implements OnInit {
   }
 
   downvoteProblem(problemID) {
-    axios.post('http://localhost:8080/downvoteProblem', { problemid: problemID })
+    axios.post('https://citizensapp-backend.herokuapp.com/downvoteProblem', { problemid: problemID })
       .then(response => {
         this.res = response;
         this.fetchProblems();

@@ -19,7 +19,7 @@ export class InsertProblemsComponent implements OnInit {
   }
 
   uploadProblem() {
-    axios.post('http://localhost:8080/insertProblem', {
+    axios.post('https://citizensapp-backend.herokuapp.com/insertProblem', {
       areaid: this.areaid,
       department: this.Department,
       description: this.Description,
