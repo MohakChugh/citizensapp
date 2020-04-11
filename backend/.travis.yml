@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "8.11"
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm i
+
+cache:
+  npm: true
+  directories:
+    - node_modules
+
+script:
+  - ng build --prod
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: QxjWS349A/cY9DgunCFXiPG3SP2gLs8iGNJD3j7WBW19ltsGGISnfy6FufKViX4SgAQw/QCErYBxi4naCCXKkbxlk0iCR/Kc6i3Qco3LaDyAEMYCyYMC8F10K5swhkckNLpOAawhvt2bLJ25jF1I9KnbhjVMBcbftkolaOU6WGIgkyrc5W66zsOcZRld7NYVSSK0O0RScNOnRfmldR9oajaTEC5hpnMS8h0Ip7Nf5LF2X7Lg9vR1oY6uib1J4m2rnylcnhF2BOWwQhFBm09neDR6GDLsC63ToJMvdYQaTYqc67NAYIvVipjJzWlH8fWBhvziG9ADARESLk2HUHTyB5LIvRC6E+Lqk96+7QFCOOc/G8ZRidF8Yv7Ln6oTm+X2/FH4udUGI22Gw7xJI7ahmGhWpvJNEiJ5YrAk0WjLa5pVYU/wjlm9QPbit1SCozq4YsPwodw17oXbtocdplba6cuHIeE3qD75O/mBUVcuA95ADPyY2Df8aPkZX5yabMZnlF0W6/OvGOI2PQYF4aXUBwd3O1PbqX59U/pkitrJK7wUgMkCEpdkWlhy9NDnNNFyaqy1+qROvmvkP2pgNE75KTbpxGoHyVYeIHzKVqBJNdUgfZhe0HDEtv7J4ruBbuAaZI4soK3Oc2TDmnvl0dGhfCedo2tr62R/6TIu9oTwvss=
+  app: "<app-name>"
+  run: "npm start"
+
+after_deploy:
+  - echo "DEPLOYMENT DONE"
